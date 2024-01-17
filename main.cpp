@@ -1,18 +1,4 @@
-/*! @mainpage Example 1.5 Modularized and with doxygen comments
-* @date Friday, January 29, 2021
-* @authors Pablo Gomez, Ariel Lutenberg and Eric Pernia
-* @section genDesc General Description
-*
-* This is a preliminary implementation of the smart home system, where the
-* code has been modularized using functions and documented using Doxygen.
-* The entry point to the program documentation can be found at
-* this \ref Example_1_5_Modularized_withDoxygenComments.cpp "link"
-*
-* @section genRem General Remarks
-* [Write here relevant information about the program]
-*
-* @section changelog Changelog
-*
+/*
 * | Date | Description |
 * |:----------:|:-----------------------------------------------|
 * | 01/14/2024 | First version of program |
