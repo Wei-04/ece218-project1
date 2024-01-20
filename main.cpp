@@ -1,7 +1,16 @@
-/*
+/*! @mainpage New York State Driver Education Car Alarm
+* @date Monday, January 14, 2024
+* @authors Collin Harrington, Weiheng He
+* @section genDesc General Description
+*
+* This is the implementation of a car alarm system for junior
+* permit holders in accordance with New York State law.
+*
+* @section changelog Changelog
 * | Date | Description |
 * |:----------:|:-----------------------------------------------|
 * | 01/14/2024 | First version of program |
+* | 01/20/2024 | Doxygen formatting       |
 *
 *
 */
@@ -29,45 +38,51 @@ UnbufferedSerial uartUsb(USBTX, USBRX, 115200); /**< Object associated with the 
 
 //=====[Declaration and initialization of public global variables]=============
 
-int ignitionAttempts = 0; /**< Tracks the number of times the ignition has been tried*/
-bool welcomeMessageSent = false; /**< Tracks whether or not the driver has been welcomed*/
+int ignitionAttempts = 0; /**< Tracks how many times ignition has been tried*/
+bool welcomeMessageSent = false; /**< Tracks if the driver has been welcomed*/
 
 //=====[Declarations (prototypes) of public functions]=========================
 
+/**
+* This function configures gasDetector, overTempDetector and aButton to dButton
+* with internal pull-down resistors.
+* @param none
+*/
 void inputsInit();
-/**<
-This function configures gasDetector, overTempDetector and aButton to dButton
-with internal pull-down resistors.
-@param none
-*/
 
+/**
+* This function initializes the outputs of the system:
+* -# alarmLed = OFF
+* -# incorrectCodeLed = OFF
+* -# systemBlockedLed = OFF
+* @param none
+*/
 void outputsInit();
-/**<
-This function initializes the outputs of the system:
--# alarmLed = OFF
--# incorrectCodeLed = OFF
--# systemBlockedLed = OFF
-*/
 
+/**
+* Checks for input of ignition input assigns ON to the buzzer and 
+* ingnitionErrorBuzzer if not all of the junior learner permit 
+* conditions are met. Also displays the requirements when those conditions 
+* aren't met, and informs
+ users of a sucessful ignition attempt otherwise.
+* @param none
+*/
 void ignitionUpdate();
-/**<
-Checks for input of ignition input assigns ON to the buzzer and ingnitionErrorBuzzer
-if not all of the junior learner permit conditions are met. 
-Also displays the requirements when those conditions aren't met, and informs
-users of a sucessful ignition attempt otherwise. 
-*/
 
+/**
+* Detects driver and passenger conditions assigns ON to the 
+* occupantsReady LED when all junior learner permit condtions are met and 
+* welcomes the driver when they seat. 
+* @param none
+*/
 void conditionsUpdate();
-/**<
-Detects driver and passenger conditions assigns ON to the occupantsReady LED
-when all junior learner permit condtions are met and welcomes the driver when they seat. 
-*/
 
-void errorMessages();
-/**<
-Prints out an error message for each unfulfilled junior learner permit ignition
-coniditon. 
+/**
+* Prints out an error message for each unfulfilled junior learner permit 
+* ignition coniditon. 
+* @param none
 */
+void errorMessages();
 
 //=====[Main function, the program entry point after power on or reset]========
 
@@ -90,7 +105,7 @@ int main()
     }
 }
 
-//Implementation of global functions
+//=====[Implementation of global functions]====================================
 
 void inputsInit() {
     passengerOccupancy.mode(PullDown);
